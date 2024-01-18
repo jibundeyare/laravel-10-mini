@@ -11,7 +11,7 @@
 <h2>{{ $article11->titre }}</h2>
 <p>{{ $article11->texte }}</p>
 <ul>
-    @foreach ($article11Images as $image)
+    @foreach ($article11->images() as $image)
     <li>
         <img src="{{ asset('images/'.$image->fichier) }}" alt="{{ $image->titre}}">
     </li>
@@ -22,7 +22,7 @@
     <h2>{{ $article->titre }}</h2>
     <p>{{ $article->texte }}</p>
     <ul>
-        @foreach ($article->images()->get() as $image)
+        @foreach ($article->images() as $image)
         <li>
             <img src="{{ asset('images/'.$image->fichier) }}" alt="{{ $image->titre}}">
         </li>

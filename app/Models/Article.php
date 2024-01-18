@@ -15,6 +15,9 @@ class Article extends Model
 
     public function images()
     {
-        return $this->belongsToMany(Image::class, 'article_image', 'article_id', 'image_id');
+        return $this
+            ->belongsToMany(Image::class, 'article_image', 'article_id', 'image_id')
+            ->orderBy('titre')
+            ->get();
     }
 }

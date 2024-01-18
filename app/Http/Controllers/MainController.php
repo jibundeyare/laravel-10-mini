@@ -9,14 +9,13 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {
     public function home() {
-        $articles = Article::all();
+        // $articles = Article::all();
+        $articles = Article::orderBy('titre')->get();
         $article11 = Article::find(11);
-        $article11Images = $article11->images()->get();
 
         return view('home', [
             'articles' => $articles,
             'article11' => $article11,
-            'article11Images' => $article11Images,
         ]);
     }
 }
