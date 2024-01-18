@@ -17,4 +17,16 @@
     </li>
     @endforeach
 </ul>
+
+@foreach ($articles as $article)
+    <h2>{{ $article->titre }}</h2>
+    <p>{{ $article->texte }}</p>
+    <ul>
+        @foreach ($article->images()->get() as $image)
+        <li>
+            <img src="{{ asset('images/'.$image->fichier) }}" alt="{{ $image->titre}}">
+        </li>
+        @endforeach
+    </ul>
+@endforeach
 @endsection
